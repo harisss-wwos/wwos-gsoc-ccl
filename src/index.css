@@ -1,0 +1,98 @@
+@font-face {
+  font-family: "regular";
+  src: url("./assets/fonts/AmazonEmber_Rg.ttf");
+}
+@font-face {
+  font-family: "light";
+  src: url("./assets/fonts/AmazonEmber_Lt.ttf");
+}
+@font-face {
+  font-family: "medium";
+  src: url("./assets/fonts/Amazon-Ember-Medium.ttf");
+}
+@font-face {
+  font-family: "bold";
+  src: url("./assets/fonts/AmazonEmberDisplay_Bd.ttf");
+}
+@font-face {
+  font-family: "italian";
+  src: url("./assets/fonts/AmazonEmber_ThIt.ttf");
+}
+
+@import "tailwindcss";
+
+@keyframes updateBtn {
+  0%,
+  100% {
+    background-color: #0f1b2a;
+    color: #f2f2f2;
+  }
+  25% {
+    background-color: #fccf6e;
+    color: #0f1b2a;
+  }
+  50% {
+    background-color: #0f1b2a;
+    color: #f2f2f2;
+  }
+  75% {
+    background-color: #fccf6e;
+    color: #0f1b2a;
+  }
+}
+
+@theme {
+  /* Background hierarchy (dark layered surfaces) */
+  --color-bg1: #0b0b0c; /* main app background */
+  --color-bg2: #121214; /* secondary background */
+  --color-bg3: #18181b; /* cards / containers */
+  --color-bg4: #232326; /* hover / elevated surfaces */
+  --color-bg5: #2c2c31; /* borders / dividers */
+
+  /* Typography */
+  --color-f1: #f9fafb; /* primary text */
+  --color-f2: #d1d5db; /* secondary text */
+  --color-f3: #fb923c; /* highlight text (orange accent) */
+
+  /* Error */
+  --color-err: #ef4444; /* modern red, readable on dark */
+
+  /* Primary accent (blue) */
+  --color-primary: #3b82f6;
+  --color-primary-hover: #2563eb;
+  --color-primary-soft: #1e3a8a;
+
+  /* Success (green) */
+  --color-success: #22c55e;
+  --color-success-hover: #16a34a;
+  --color-success-soft: #14532d;
+
+  /* Warning / Premium (orange) */
+  --color-warning: #f97316;
+  --color-warning-hover: #ea580c;
+  --color-warning-soft: #7c2d12;
+
+  /* Borders and UI structure */
+  --color-border: #2c2c31;
+  --color-border-soft: #1f1f23;
+
+  /* Interactive states */
+  --color-hover: #232326;
+  --color-active: #2f2f35;
+
+  /* Shadows (for elevation) */
+  --color-shadow: rgba(0, 0, 0, 0.5);
+
+  /* Optional glow accents */
+  --color-blue-glow: #60a5fa;
+  --color-green-glow: #4ade80;
+  --color-orange-glow: #fb923c;
+
+  --font-f1: regular, "sans-serif";
+  --font-f2: light, "sans-serif";
+  --font-f3: medium, "sans-serif";
+  --font-f4: bold, "sans-serif";
+  --font-f5: italian, "sans-serif";
+
+  --animate-updateBtn: updateBtn 5s ease-in-out infinite;
+}
