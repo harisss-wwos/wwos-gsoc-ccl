@@ -3,18 +3,18 @@ name: Deploy React App to S3
 on:
   push:
     branches:
-      - main   # change if your branch is different
+      - main   # change if needed
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Get code from GitHub
+      # 1️⃣ Checkout code
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2️⃣ Setup Node
+      # 2️⃣ Setup Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -24,11 +24,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # 4️⃣ Build React app
+      # 4️⃣ Build project
       - name: Build project
         run: npm run build
 
-      # 5️⃣ 🔐 Configure AWS Credentials (IMPORTANT STEP)
+      # 5️⃣ Configure AWS credentials
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -36,12 +36,12 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
 
-      # 6️⃣ Upload to S3
+      # 6️⃣ Deploy to S3
       - name: Deploy to S3
         run: |
           aws s3 sync dist/ s3://${{ secrets.S3_BUCKET_NAME }} --delete
-          - name: Invalidate CloudFront Cache
-          
+
+      # 7️⃣ Invalidate CloudFront cache
       - name: Invalidate CloudFront Cache
         run: |
           aws cloudfront create-invalidation \
